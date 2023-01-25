@@ -36,12 +36,13 @@ int _printf(const char *format, ...)
 				p++;
 			pfunc = get_print(*p);
 			count += (pfunc)
-				? pfunc(arguments, &flags)
-				: _printf("%%%c", *p);
-		} else
+						 ? pfunc(arguments, &flags)
+						 : _printf("%%%c", *p);
+		}
+		else
 			count += _putchar(*p);
 	}
 	_putchar(-1);
 	va_end(arguments);
 	return (count);
-}/*by davidinmichael and HaryorAji*/
+}
